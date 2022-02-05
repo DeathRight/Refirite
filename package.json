@@ -1,0 +1,57 @@
+{
+  "name": "template",
+  "version": "0.0.0",
+  "license": "ISC",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "prepare": "husky install",
+    "preview": "vite preview"
+  },
+  "commitlint": {
+    "extends": [
+      "@0x219"
+    ]
+  },
+  "lint-staged": {
+    "*.{css,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "eslint",
+      "prettier --write"
+    ],
+    "package.json": "npx sort-package-json"
+  },
+  "dependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@0x219/commitlint-config": "1.0.2",
+    "@commitlint/cli": "16.1.0",
+    "@types/react": "17.0.38",
+    "@types/react-dom": "17.0.11",
+    "@typescript-eslint/eslint-plugin": "5.10.2",
+    "@typescript-eslint/parser": "5.10.2",
+    "@vitejs/plugin-legacy": "1.6.4",
+    "@vitejs/plugin-react": "1.1.4",
+    "eslint": "8.8.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "16.1.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.28.0",
+    "eslint-plugin-react-hooks": "4.3.0",
+    "husky": "7.0.4",
+    "lint-staged": "12.3.3",
+    "prettier": "2.5.1",
+    "sort-package-json": "1.53.1",
+    "typescript": "4.5.5",
+    "vite": "2.7.13",
+    "vite-plugin-mkcert": "1.5.2",
+    "vite-tsconfig-paths": "3.3.17"
+  }
+}
