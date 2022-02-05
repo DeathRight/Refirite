@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    "types": ["vite/client"],
+    "target": "ESNext",
+    "module": "ESNext",
     "moduleResolution": "Node",
     "importHelpers": true,
     "jsx": "react-jsx",
