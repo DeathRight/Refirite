@@ -4,6 +4,7 @@ import { render } from "react-dom";
 import { FirebaseAppProvider } from "reactfire";
 
 import App from "./App";
+import { ThemeContextProvider } from "./components/contexts/ThemeContextProvider";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
@@ -17,9 +18,11 @@ const firebaseConfig = {
 
 render(
   <StrictMode>
-    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <App />
-    </FirebaseAppProvider>
+    <ThemeContextProvider>
+      <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+        <App />
+      </FirebaseAppProvider>
+    </ThemeContextProvider>
   </StrictMode>,
   document.getElementById("root")
 );

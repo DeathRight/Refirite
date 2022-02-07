@@ -28,6 +28,13 @@
           "function-expression"
         ]
       }
-    ]
+    ],
+    "react/jsx-boolean-value": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-param-reassign": "off"
   }
 }
