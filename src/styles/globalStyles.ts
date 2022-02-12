@@ -14,6 +14,19 @@ const globalStyles = globalCss({
     padding: "0",
     height: "100vh",
     width: "100vw",
+    fontFamily: `'Quicksand', sans-serif`,
+  },
+  "a:link": {
+    color: "$link",
+  },
+  "a:hover": {
+    color: "$linkHover",
+  },
+  "a:active": {
+    color: "$linkSelect",
+  },
+  "a:visited": {
+    color: "$p9",
   },
 });
 

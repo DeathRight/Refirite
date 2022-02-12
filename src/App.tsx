@@ -1,18 +1,22 @@
 import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 import { getAuth } from "firebase/auth";
-import { FunctionComponent } from "react";
-import { AppCheckProvider, AuthProvider, useFirebaseApp } from "reactfire";
+import { FunctionComponent, useEffect } from "react";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import {
+  AppCheckProvider,
+  AuthProvider,
+  SuspenseWithPerf,
+  useFirebaseApp,
+  useInitPerformance,
+  useSigninCheck,
+} from "reactfire";
 import { styled } from "stitches.config";
 
-import Backdrop from "./components/common/Backdrop";
-import Card from "./components/common/Card";
-import Modal from "./components/common/Modal";
-import {
-  useDarkModeState,
-  useTheme,
-} from "./components/contexts/ThemeContextProvider";
-import Spinner from "./components/Spinner";
-import ToggleTheme from "./components/ToggleThemeButton";
+import AuthLand from "./AuthLand";
+import { useTheme } from "./components/contexts/ThemeContextProvider";
+import LoadingOverlay from "./components/LoadingOverlay";
+import About from "./routes/About";
+import Home from "./routes/Home";
 import globalStyles from "./styles/globalStyles";
 
 const AppWrapper = styled("div", {
@@ -24,11 +28,19 @@ const AppWrapper = styled("div", {
   padding: "0",
   width: "100vw",
   height: "100vh",
+  display: "flex",
 });
 
-export const AuthHandle: FunctionComponent = ({ children }): JSX.Element => (
-  <div>{children}</div>
-);
+const AuthHandle: FunctionComponent = ({ children }) => {
+  const { data: signInCheckResult } = useSigninCheck();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!signInCheckResult.signedIn) navigate("/auth");
+  }, [signInCheckResult]);
+
+  return <>{signInCheckResult.signedIn && children}</>;
+};
 
 export default function App(): JSX.Element {
   globalStyles();
@@ -39,27 +51,39 @@ export default function App(): JSX.Element {
     isTokenAutoRefreshEnabled: true,
   });
 
+  useInitPerformance(
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    async (app) => {
+      const { getPerformance } = await import("firebase/performance");
+      return getPerformance(app);
+    },
+    { suspense: false } // false because we don't want to stop render while we wait for perf
+  );
+
   const theme = useTheme();
-  const [darkMode, setDarkMode] = useDarkModeState();
 
   return (
-    <AuthProvider sdk={auth}>
-      <AppWrapper className={theme}>
-        <AuthHandle>
-          <AppCheckProvider sdk={appCheck}>
-            <Modal show={true} renderBackdrop={() => <Backdrop />}>
-              <Card>
-                <ToggleTheme
-                  defaultPressed={darkMode}
-                  onPressed={(p) => setDarkMode(p)}
-                />
-                hello world
-                <Spinner />
-              </Card>
-            </Modal>
-          </AppCheckProvider>
-        </AuthHandle>
-      </AppWrapper>
-    </AuthProvider>
+    <AppWrapper className={theme}>
+      <AppCheckProvider sdk={appCheck}>
+        <AuthProvider sdk={auth}>
+          <SuspenseWithPerf
+            traceId="firebase-user-wait"
+            fallback={<LoadingOverlay />}
+          >
+            <BrowserRouter>
+              <Routes>
+                <Route path="/auth" element={<AuthLand />} />
+              </Routes>
+              <AuthHandle>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                </Routes>
+              </AuthHandle>
+            </BrowserRouter>
+          </SuspenseWithPerf>
+        </AuthProvider>
+      </AppCheckProvider>
+    </AppWrapper>
   );
 }

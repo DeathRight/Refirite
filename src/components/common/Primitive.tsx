@@ -12,7 +12,7 @@ const Primitive = (props: PrimitiveProps) => {
     fontSize,
     width,
     height,
-    size,
+    size = "$4",
   } = props;
   let { as } = props;
   as ??= "div";

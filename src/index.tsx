@@ -1,6 +1,6 @@
 import { FirebaseOptions } from "firebase/app";
 import { StrictMode } from "react";
-import { render } from "react-dom";
+import { createRoot } from "react-dom";
 import { FirebaseAppProvider } from "reactfire";
 
 import App from "./App";
@@ -16,13 +16,14 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENTID,
 } as FirebaseOptions;
 
-render(
+const root = createRoot(document.getElementById("root") as HTMLDivElement);
+
+root.render(
   <StrictMode>
     <ThemeContextProvider>
-      <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+      <FirebaseAppProvider firebaseConfig={firebaseConfig} suspense={true}>
         <App />
       </FirebaseAppProvider>
     </ThemeContextProvider>
-  </StrictMode>,
-  document.getElementById("root")
+  </StrictMode>
 );

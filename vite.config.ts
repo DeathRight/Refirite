@@ -1,9 +1,10 @@
-import type { UserConfigFn, UserConfig } from "vite";
-import react from "@vitejs/plugin-react";
 import legacy from "@vitejs/plugin-legacy";
-import tsconfigPaths from "vite-tsconfig-paths";
+import react from "@vitejs/plugin-react";
 import mkcert from "vite-plugin-mkcert";
+import svgrPlugin from "vite-plugin-svgr";
+import tsconfigPaths from "vite-tsconfig-paths";
 
+import type { UserConfigFn, UserConfig } from "vite";
 const defineConfig: UserConfigFn = ({ command, mode }) => {
   const config: UserConfig = {
     server: {
@@ -15,6 +16,11 @@ const defineConfig: UserConfigFn = ({ command, mode }) => {
       legacy(),
       mkcert({
         source: "coding",
+      }),
+      svgrPlugin({
+        svgrOptions: {
+          icon: true,
+        },
       }),
     ],
     build: {

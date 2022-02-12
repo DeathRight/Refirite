@@ -5,9 +5,17 @@ import {
 } from "@app/util/stitches";
 import {
   amber,
+  amberDark,
+  blue,
+  blueDark,
   crimson,
+  crimsonDark,
   cyan,
+  cyanDark,
   grass,
+  grassDark,
+  gray,
+  grayDark,
   mauve,
   mauveDark,
   tomato,
@@ -82,51 +90,9 @@ const shared = {
     max: "999",
   },
   shadows: {
-    1: "0 4px 8px 0 rgba(0,0,0,0.2)",
-    2: "0 8px 16px 0 rgba(0,0,0,0.2)",
+    1: "0 0px 8px 0 rgba(0,0,0,0.2)",
+    2: "0 0px 16px 0 rgba(0,0,0,0.2)",
   },
-};
-
-/**
- * Colors to be shared across themes
- */
-const sharedColors = {
-  //error
-  error: crimson.crimson4,
-  errorHover: crimson.crimson5,
-  errorSelect: crimson.crimson6,
-  errorInactive: crimson.crimson2,
-  errorInactiveA: crimson.crimson7,
-  errorA: crimson.crimson9,
-  errorHiC: crimson.crimson12,
-  errorLoC: crimson.crimson11,
-  //success
-  success: grass.grass4,
-  successHover: grass.grass5,
-  successSelect: grass.grass6,
-  successInactive: grass.grass2,
-  successInactiveA: grass.grass7,
-  successA: grass.grass9,
-  successHiC: grass.grass12,
-  successLoC: grass.grass11,
-  //info
-  info: cyan.cyan4,
-  infoHover: cyan.cyan5,
-  infoSelect: cyan.cyan6,
-  infoInactive: cyan.cyan2,
-  infoInactiveA: cyan.cyan7,
-  infoA: cyan.cyan9,
-  infoHiC: cyan.cyan12,
-  infoLoC: cyan.cyan11,
-  //warn
-  warn: amber.amber4,
-  warnHover: amber.amber5,
-  warnSelect: amber.amber6,
-  warnInactive: amber.amber2,
-  warnInactiveA: amber.amber7,
-  warnA: amber.amber9,
-  warnHiC: amber.amber12,
-  warnLoC: amber.amber11,
 };
 
 /* ---------------------- Default (light) Theme Colors ---------------------- */
@@ -163,7 +129,64 @@ const defaultThemeColors = {
   attA: lightAccent.a9,
   attHiC: lightAccent.a12,
   attLoC: lightAccent.a11,
-  ...sharedColors,
+  //error
+  error: crimson.crimson4,
+  errorHover: crimson.crimson5,
+  errorSelect: crimson.crimson6,
+  errorInactive: crimson.crimson2,
+  errorInactiveA: crimson.crimson7,
+  errorA: crimson.crimson9,
+  errorHiC: crimson.crimson12,
+  errorLoC: crimson.crimson11,
+  //success
+  success: grass.grass4,
+  successHover: grass.grass5,
+  successSelect: grass.grass6,
+  successInactive: grass.grass2,
+  successInactiveA: grass.grass7,
+  successA: grass.grass9,
+  successHiC: grass.grass12,
+  successLoC: grass.grass11,
+  //info
+  info: cyan.cyan4,
+  infoHover: cyan.cyan5,
+  infoSelect: cyan.cyan6,
+  infoInactive: cyan.cyan2,
+  infoInactiveA: cyan.cyan7,
+  infoA: cyan.cyan9,
+  infoHiC: cyan.cyan12,
+  infoLoC: cyan.cyan11,
+  //warn
+  warn: amber.amber4,
+  warnHover: amber.amber5,
+  warnSelect: amber.amber6,
+  warnInactive: amber.amber2,
+  warnInactiveA: amber.amber7,
+  warnA: amber.amber9,
+  warnHiC: amber.amber12,
+  warnLoC: amber.amber11,
+  //Branding
+  //Twitter
+  twitter: blue.blue4,
+  twitterHover: blue.blue5,
+  twitterActive: blue.blue6,
+  twitterA: blue.blue9,
+  twitterHiC: blue.blue12,
+  twitterLoC: blue.blue11,
+  //GitHub
+  github: gray.gray4,
+  githubHover: gray.gray5,
+  githubActive: gray.gray6,
+  githubA: gray.gray9,
+  githubHiC: gray.gray12,
+  githubLoC: gray.gray11,
+  //Google
+  google: gray.gray1,
+  googleHover: gray.gray2,
+  googleActive: gray.gray3,
+  googleA: gray.gray9,
+  googleHiC: gray.gray12,
+  googleLoC: gray.gray11,
 };
 /* ----------------------------- createStitches ----------------------------- */
 export const {
@@ -263,6 +286,63 @@ export const darkTheme = createTheme("dark-theme", {
     attA: darkAccent.a9,
     attHiC: darkAccent.a12,
     attLoC: darkAccent.a11,
-    ...sharedColors,
+    //error
+    error: crimsonDark.crimson4,
+    errorHover: crimsonDark.crimson5,
+    errorSelect: crimsonDark.crimson6,
+    errorInactive: crimsonDark.crimson2,
+    errorInactiveA: crimsonDark.crimson7,
+    errorA: crimsonDark.crimson9,
+    errorHiC: crimsonDark.crimson12,
+    errorLoC: crimsonDark.crimson11,
+    //success
+    success: grassDark.grass4,
+    successHover: grassDark.grass5,
+    successSelect: grassDark.grass6,
+    successInactive: grassDark.grass2,
+    successInactiveA: grassDark.grass7,
+    successA: grassDark.grass9,
+    successHiC: grassDark.grass12,
+    successLoC: grassDark.grass11,
+    //info
+    info: cyanDark.cyan4,
+    infoHover: cyanDark.cyan5,
+    infoSelect: cyanDark.cyan6,
+    infoInactive: cyanDark.cyan2,
+    infoInactiveA: cyanDark.cyan7,
+    infoA: cyanDark.cyan9,
+    infoHiC: cyanDark.cyan12,
+    infoLoC: cyanDark.cyan11,
+    //warn
+    warn: amberDark.amber4,
+    warnHover: amberDark.amber5,
+    warnSelect: amberDark.amber6,
+    warnInactive: amberDark.amber2,
+    warnInactiveA: amberDark.amber7,
+    warnA: amberDark.amber9,
+    warnHiC: amberDark.amber12,
+    warnLoC: amberDark.amber11,
+    //Branding
+    //Twitter
+    twitter: blueDark.blue4,
+    twitterHover: blueDark.blue5,
+    twitterActive: blueDark.blue6,
+    twitterA: blueDark.blue9,
+    twitterHiC: blueDark.blue12,
+    twitterLoC: blueDark.blue11,
+    //GitHub
+    github: grayDark.gray4,
+    githubHover: grayDark.gray5,
+    githubActive: grayDark.gray6,
+    githubA: grayDark.gray9,
+    githubHiC: grayDark.gray12,
+    githubLoC: grayDark.gray11,
+    //Google
+    google: grayDark.gray1,
+    googleHover: grayDark.gray2,
+    googleActive: grayDark.gray3,
+    googleA: grayDark.gray9,
+    googleHiC: grayDark.gray12,
+    googleLoC: grayDark.gray11,
   } as typeof defaultThemeColors,
 });
