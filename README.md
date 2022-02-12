@@ -31,7 +31,7 @@ Obviously, you will want to customize the theme, so there's a bit to explain in 
 I have a vite svg plugin and Google Icon that it loads as a component for the Google sign in button. Nasty, right? Well, Google is very strict about their branding, and Radix-Icons doesn't have their icon.
 
 If you want to delete it just run:
-`pnmp remove vite-plugin-svgr`
+`pnpm remove vite-plugin-svgr`
 ...and then delete the GoogleIcon.svg in /src/assets, as well as reconfigure the Auth page.
 However, if you plan to use Radix-Icons and auth via Google, you'll probably just want to keep it.
 
