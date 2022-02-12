@@ -1,7 +1,13 @@
 import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 import { getAuth } from "firebase/auth";
 import { FunctionComponent, useEffect } from "react";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
 import {
   AppCheckProvider,
   AuthProvider,
@@ -78,6 +84,7 @@ export default function App(): JSX.Element {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<About />} />
+                  <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
               </AuthHandle>
             </BrowserRouter>
