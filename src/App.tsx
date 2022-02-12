@@ -84,6 +84,7 @@ export default function App(): JSX.Element {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<About />} />
+                  <Route path="/auth" element={<Home />} />
                   <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
               </AuthHandle>
