@@ -7,7 +7,7 @@ const Backdrop = styled("div", {
   bottom: "0",
   left: "0",
   right: "0",
-  backgroundColor: "#000",
+  backgroundColor: "$blackA6",
   opacity: "0.5",
   display: "flex",
   flexDirection: "row",

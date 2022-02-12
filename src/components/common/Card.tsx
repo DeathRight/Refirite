@@ -9,7 +9,6 @@ const Card = styled("div", {
   alignItems: "center",
   alignContent: "center",
   boxShadow: "$1",
-  transition: "0.3s",
   borderRadius: "$2",
   margin: "$2",
   padding: "$2",

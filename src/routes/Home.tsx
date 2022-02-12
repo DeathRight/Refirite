@@ -1,15 +1,13 @@
 import Card from "@app/components/common/Card";
 import Center from "@app/components/common/Center";
 import { useDarkModeState } from "@app/components/contexts/ThemeContextProvider";
-import IconButton from "@app/components/IconButton";
+import SignOutButton from "@app/components/SignOutButton";
 import ToggleTheme from "@app/components/ToggleThemeButton";
-import { ExitIcon } from "@radix-ui/react-icons";
 import { Link } from "react-router-dom";
-import { useAuth } from "reactfire";
 
 const Home = () => {
   const [darkMode, setDarkMode] = useDarkModeState();
-  const auth = useAuth();
+  // const auth = useAuth();
 
   return (
     <Center>
@@ -19,11 +17,7 @@ const Home = () => {
           onPressed={(p) => setDarkMode(p)}
         />
         hello world
-        <IconButton
-          icon={ExitIcon}
-          aria-label="Sign out"
-          onClick={() => auth.signOut()}
-        />
+        <SignOutButton />
         <hr />
         <Link to="/about">About</Link>
       </Card>

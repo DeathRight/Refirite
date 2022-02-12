@@ -6,6 +6,7 @@ import {
 import {
   amber,
   amberDark,
+  blackA,
   blue,
   blueDark,
   crimson,
@@ -20,6 +21,7 @@ import {
   mauveDark,
   tomato,
   tomatoDark,
+  whiteA,
 } from "@radix-ui/colors";
 import { createStitches } from "@stitches/react";
 
@@ -97,11 +99,13 @@ const shared = {
 
 /* ---------------------- Default (light) Theme Colors ---------------------- */
 /**
- * All tokens must be defined here and in sharedColors, and all themes must match them
+ * All tokens must be defined here, and all themes must match them
  */
 const defaultThemeColors = {
   ...lightPrimary,
   ...lightAccent,
+  ...blackA,
+  ...whiteA,
   // shorthand common tokens
   // main
   hiC: lightPrimary.p12,
@@ -188,6 +192,96 @@ const defaultThemeColors = {
   googleHiC: gray.gray12,
   googleLoC: gray.gray11,
 };
+/* ---------------------------- darkTheme Colors ---------------------------- */
+const darkThemeColors = {
+  ...darkPrimary,
+  ...darkAccent,
+  // shorthand common tokens
+  // main
+  hiC: darkPrimary.p12,
+  loC: darkPrimary.p11,
+  appBg: darkPrimary.p1,
+  cardBg: darkPrimary.p2,
+  logo: darkAccent.a9,
+  link: darkAccent.a9,
+  linkHover: darkAccent.a10,
+  linkSelect: darkAccent.a11,
+  visited: darkPrimary.p9,
+  visitedHover: darkPrimary.p10,
+  visitedSelect: darkPrimary.p11,
+  // header text
+  h: darkAccent.a10,
+  // component
+  inactive: darkPrimary.p3,
+  active: darkAccent.a3,
+  hover: darkAccent.a4,
+  select: darkAccent.a5,
+  // attention (call to action)
+  attActive: darkAccent.a4,
+  attHover: darkAccent.a5,
+  attSelect: darkAccent.a6,
+  attA: darkAccent.a9,
+  attHiC: darkAccent.a12,
+  attLoC: darkAccent.a11,
+  //error
+  error: crimsonDark.crimson4,
+  errorHover: crimsonDark.crimson5,
+  errorSelect: crimsonDark.crimson6,
+  errorInactive: crimsonDark.crimson2,
+  errorInactiveA: crimsonDark.crimson7,
+  errorA: crimsonDark.crimson9,
+  errorHiC: crimsonDark.crimson12,
+  errorLoC: crimsonDark.crimson11,
+  //success
+  success: grassDark.grass4,
+  successHover: grassDark.grass5,
+  successSelect: grassDark.grass6,
+  successInactive: grassDark.grass2,
+  successInactiveA: grassDark.grass7,
+  successA: grassDark.grass9,
+  successHiC: grassDark.grass12,
+  successLoC: grassDark.grass11,
+  //info
+  info: cyanDark.cyan4,
+  infoHover: cyanDark.cyan5,
+  infoSelect: cyanDark.cyan6,
+  infoInactive: cyanDark.cyan2,
+  infoInactiveA: cyanDark.cyan7,
+  infoA: cyanDark.cyan9,
+  infoHiC: cyanDark.cyan12,
+  infoLoC: cyanDark.cyan11,
+  //warn
+  warn: amberDark.amber4,
+  warnHover: amberDark.amber5,
+  warnSelect: amberDark.amber6,
+  warnInactive: amberDark.amber2,
+  warnInactiveA: amberDark.amber7,
+  warnA: amberDark.amber9,
+  warnHiC: amberDark.amber12,
+  warnLoC: amberDark.amber11,
+  //Branding
+  //Twitter
+  twitter: blueDark.blue4,
+  twitterHover: blueDark.blue5,
+  twitterActive: blueDark.blue6,
+  twitterA: blueDark.blue9,
+  twitterHiC: blueDark.blue12,
+  twitterLoC: blueDark.blue11,
+  //GitHub
+  github: grayDark.gray4,
+  githubHover: grayDark.gray5,
+  githubActive: grayDark.gray6,
+  githubA: grayDark.gray9,
+  githubHiC: grayDark.gray12,
+  githubLoC: grayDark.gray11,
+  //Google
+  google: grayDark.gray1,
+  googleHover: grayDark.gray2,
+  googleActive: grayDark.gray3,
+  googleA: grayDark.gray9,
+  googleHiC: grayDark.gray12,
+  googleLoC: grayDark.gray11,
+} as typeof defaultThemeColors;
 /* ----------------------------- createStitches ----------------------------- */
 export const {
   styled,
@@ -204,7 +298,7 @@ export const {
     ...shared,
   },
   media: {
-    sm: "(min-width: 640px)",
+    sm: "(max-width: 640px)",
     md: "(min-width: 768px)",
     lg: "(min-width: 1024px)",
   },
@@ -256,93 +350,5 @@ export const lightTheme = createTheme("light-theme", {
   colors: defaultThemeColors,
 });
 export const darkTheme = createTheme("dark-theme", {
-  colors: {
-    ...darkPrimary,
-    ...darkAccent,
-    // shorthand common tokens
-    // main
-    hiC: darkPrimary.p12,
-    loC: darkPrimary.p11,
-    appBg: darkPrimary.p1,
-    cardBg: darkPrimary.p2,
-    logo: darkAccent.a9,
-    link: darkAccent.a9,
-    linkHover: darkAccent.a10,
-    linkSelect: darkAccent.a11,
-    visited: darkPrimary.p9,
-    visitedHover: darkPrimary.p10,
-    visitedSelect: darkPrimary.p11,
-    // header text
-    h: darkAccent.a10,
-    // component
-    inactive: darkPrimary.p3,
-    active: darkAccent.a3,
-    hover: darkAccent.a4,
-    select: darkAccent.a5,
-    // attention (call to action)
-    attActive: darkAccent.a4,
-    attHover: darkAccent.a5,
-    attSelect: darkAccent.a6,
-    attA: darkAccent.a9,
-    attHiC: darkAccent.a12,
-    attLoC: darkAccent.a11,
-    //error
-    error: crimsonDark.crimson4,
-    errorHover: crimsonDark.crimson5,
-    errorSelect: crimsonDark.crimson6,
-    errorInactive: crimsonDark.crimson2,
-    errorInactiveA: crimsonDark.crimson7,
-    errorA: crimsonDark.crimson9,
-    errorHiC: crimsonDark.crimson12,
-    errorLoC: crimsonDark.crimson11,
-    //success
-    success: grassDark.grass4,
-    successHover: grassDark.grass5,
-    successSelect: grassDark.grass6,
-    successInactive: grassDark.grass2,
-    successInactiveA: grassDark.grass7,
-    successA: grassDark.grass9,
-    successHiC: grassDark.grass12,
-    successLoC: grassDark.grass11,
-    //info
-    info: cyanDark.cyan4,
-    infoHover: cyanDark.cyan5,
-    infoSelect: cyanDark.cyan6,
-    infoInactive: cyanDark.cyan2,
-    infoInactiveA: cyanDark.cyan7,
-    infoA: cyanDark.cyan9,
-    infoHiC: cyanDark.cyan12,
-    infoLoC: cyanDark.cyan11,
-    //warn
-    warn: amberDark.amber4,
-    warnHover: amberDark.amber5,
-    warnSelect: amberDark.amber6,
-    warnInactive: amberDark.amber2,
-    warnInactiveA: amberDark.amber7,
-    warnA: amberDark.amber9,
-    warnHiC: amberDark.amber12,
-    warnLoC: amberDark.amber11,
-    //Branding
-    //Twitter
-    twitter: blueDark.blue4,
-    twitterHover: blueDark.blue5,
-    twitterActive: blueDark.blue6,
-    twitterA: blueDark.blue9,
-    twitterHiC: blueDark.blue12,
-    twitterLoC: blueDark.blue11,
-    //GitHub
-    github: grayDark.gray4,
-    githubHover: grayDark.gray5,
-    githubActive: grayDark.gray6,
-    githubA: grayDark.gray9,
-    githubHiC: grayDark.gray12,
-    githubLoC: grayDark.gray11,
-    //Google
-    google: grayDark.gray1,
-    googleHover: grayDark.gray2,
-    googleActive: grayDark.gray3,
-    googleA: grayDark.gray9,
-    googleHiC: grayDark.gray12,
-    googleLoC: grayDark.gray11,
-  } as typeof defaultThemeColors,
+  colors: darkThemeColors,
 });

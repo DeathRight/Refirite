@@ -16,6 +16,7 @@ const Spinner = ({ color, size, ...props }: SpinnerProps) => {
   const SpinnerC = styled("div", {
     display: "inline-block",
     size: "fit-content",
+    outline: "none",
     "&:after": {
       content: " ",
       display: "block",
@@ -26,6 +27,7 @@ const Spinner = ({ color, size, ...props }: SpinnerProps) => {
       borderWidth: "$3",
       borderColor: color,
       animation: `${rotate} 1.2s linear infinite`,
+      outline: "none",
     },
   });
 
